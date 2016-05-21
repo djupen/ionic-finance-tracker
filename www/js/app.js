@@ -5,23 +5,23 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('myfinance', ['ionic', 'myfinance.controller.app', 'myfinance.controller.addentry', 'myfinance.controller.entrylist', 'myfinance.controller.statistics', 'myfinance.services'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+  .run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
+        // Don't remove this line unless you know what you are doing. It stops the viewport
+        // from snapping when text inputs are focused. Ionic handles this internally for
+        // a much nicer keyboard experience.
+        cordova.plugins.Keyboard.disableScroll(true);
+      }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+    });
+  })
 
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -35,10 +35,30 @@ angular.module('myfinance', ['ionic', 'myfinance.controller.app', 'myfinance.con
 
       .state('app.addEntry', {
         url: '/addEntry',
-        controller: 'AddEntryController',
         views: {
           'menuContent': {
+            controller: 'AddEntryController',
             templateUrl: 'templates/addentry.html'
+          }
+        }
+      })
+
+      .state('app.addEntry$topLevelCategorySelect', {
+        url: '/addEntry/topLevelCategorySelect',
+        views: {
+          'menuContent': {
+            controller: 'AddEntryController',
+            templateUrl: 'templates/_addEntryTopLevelCategorySelect.html'
+          }
+        }
+      })
+
+      .state('app.addEntry$subLevelCategorySelect', {
+        url: '/addEntry/subLevelCategorySelect',
+        views: {
+          'menuContent': {
+            controller: 'AddEntryController',
+            templateUrl: 'templates/_addEntrySubLevelCategorySelect.html'
           }
         }
       })
@@ -51,6 +71,7 @@ angular.module('myfinance', ['ionic', 'myfinance.controller.app', 'myfinance.con
           }
         }
       })
+
       .state('app.statistics', {
         url: '/statistics',
         views: {

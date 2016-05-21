@@ -48,10 +48,23 @@ angular.module('myfinance.services', ['ionic'])
       {id: "4", topLevelId: "4", title: "Kategorie 4 Subkategorie 2", color: "8888ff"}
     ];
 
+    // The category picked by the user
+    this.selectedAddEntryTopLevelCategory = null;
+
+    // The sub level category picked by the user
+    this.selectedAddEntrySubLevelCategory = null;
 
     return {
 
-      getAllTopLevelCategories: function () {
+      setSelectedAddEntryTopLevelCategory: function (topLevelCategory) {
+        this.selectedAddEntryTopLevelCategory = topLevelCategory;
+      },
+
+      setSelectedAddEntrySubLevelCategory: function (subLevelCategory) {
+        this.selectedAddEntrySubLevelCategory = subLevelCategory;
+      },
+
+      getTopLevelCategories: function () {
         return topLevelCategories;
       },
 
@@ -59,7 +72,7 @@ angular.module('myfinance.services', ['ionic'])
         var matchingSubLevelCategories = [];
         for (var i = 0; i < subLevelCategories.length; i++) {
           var subLevelCategoryItem = subLevelCategories[i];
-          if (subLevelCategoryItem.topLevelId == x) {
+          if (subLevelCategoryItem.topLevelId == x.id) {
             matchingSubLevelCategories.push(subLevelCategoryItem);
           }
         }
