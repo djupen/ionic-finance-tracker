@@ -1,82 +1,48 @@
 <ion-view view-title="Ausgabe eintragen">
   <ion-content>
 
-    <!--
-    <form name="addEntryForm" ng-controller="AddEntryController" novalidate="" ng-submit="addEntry(addEntryForm)">
-      -->
-    <!-- Amount -->
-    <label class="item item-input item-stacked-label"
-           ng-class="{ 'has-errors' : addEntryForm.amount.$invalid, 'no-errors' : addEntryForm.amount.$valid}">
-      <span class="input-label">Betrag</span>
-      <input type="number" ng-model="addEntryFormData.amount" name="amount" placeholder="9,99€" min="1" required>
-    </label>
+    <form name="addEntryForm" novalidate="" ng-submit="addEntry(addEntryForm)">
+      <!-- Amount -->
+      <label class="item item-input item-stacked-label"
+             ng-class="{ 'has-errors' : addEntryForm.amount.$invalid, 'no-errors' : addEntryForm.amount.$valid}">
+        <span class="input-label">Betrag</span>
+        <input type="number" ng-model="addEntryFormData.amount" name="amount" placeholder="9,99€" min="1" required>
+      </label>
 
-    <div class="error-container" ng-show="addEntryForm.amount.$error" ng-messages="addEntryForm.amount.$error">
-      <div ng-messages-include="error-list.html"></div>
-    </div>
-
-    <div class="list">
-      <a class="item item-icon-right" ui-sref="app.addEntry$topLevelCategorySelect">
-        <div ng-if="categoryService.selectedTopLevelCategory.title !== undefined">
-          {{categoryService.selectedTopLevelCategory.title}}
-        </div>
-        <div ng-if="categoryService.selectedTopLevelCategory.title === undefined">
-          Kategorie
-        </div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </a>
-      <a class="item item-icon-right" href="#/app/addEntry/subLevelCategorySelect">
-        <div ng-if="categoryService.selectedTopLevelCategory.title !== undefined">
-          {{categoryService.selectedSubLevelCategory.title}}
-        </div>
-        <div ng-if="categoryService.selectedSubLevelCategory.title === undefined">
-          Unter-Kategorie
-        </div>
-        <i class="icon ion-ios-arrow-right"></i>
-      </a>
-    </div>
-
-    <!--
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Kategorie
+      <div class="error-container" ng-show="addEntryForm.amount.$error" ng-messages="addEntryForm.amount.$error">
+        <div ng-messages-include="error-list.html"></div>
       </div>
-      <select name="category" ng-model="addEntryFormData.selectedCategory" ng-change="updateSubCategories()"
-              ng-options="x.title for x in categories" required>
-      </select>
-    </label>
 
-    <label class="item item-input item-select">
-      <div class="input-label">
-        Detail-Kategorie
+      <div class="list no-margin-bottom no-padding-bottom">
+        <a class="item item-icon-right" ui-sref="app.addEntry$topLevelCategorySelect">
+          <div ng-if="isUndefinedOrNull(categoryService.selectedAddEntryTopLevelCategory)">
+            Kategorie
+          </div>
+          <div ng-if="!isUndefinedOrNull(categoryService.selectedAddEntryTopLevelCategory)">
+            {{categoryService.selectedAddEntryTopLevelCategory.title}}
+          </div>
+          <i class="icon ion-ios-arrow-right"></i>
+        </a>
+
+        <a ui-sref="app.addEntry$subLevelCategorySelect"
+           class="item item-icon-right {{isUndefinedOrNull(categoryService.selectedAddEntryTopLevelCategory) && 'a-disabled' || ''}}">
+          <div ng-if="isUndefinedOrNull(categoryService.selectedAddEntrySubLevelCategory)">
+            Unter-Kategorie
+          </div>
+          <div ng-if="!isUndefinedOrNull(categoryService.selectedAddEntrySubLevelCategory)">
+            {{categoryService.selectedAddEntrySubLevelCategory.title}}
+          </div>
+          <i class="icon ion-ios-arrow-right"></i>
+        </a>
       </div>
-      <select name="subcategory" ng-model="addEntryFormData.selectedSubCategory"
-              ng-options="x.title for x in subLevelCategories" required>
-      </select>
-    </label>
-    -->
 
-    <!--
-<div class="list" style="margin-bottom: 0px;">
-<li class="item item-toggle">
-  Position speichern
-  <label class="toggle toggle-assertive">
-    <input type="checkbox">
-    <div class="track">
-      <div class="handle"></div>
-    </div>
-  </label>
-</li>
-</div>
+      <button ng-disabled="addEntryForm.$invalid" class="button button-full button-positive ft-red-bg"
+              style="margin-top: 0px;"
+              type="submit">
+        Eintragen
+      </button>
 
-
-    <button ng-disabled="addEntryForm.$invalid" class="button button-full button-positive" style="margin-top: 0px;"
-            type="submit">
-      Sign In
-    </button>
-
-  </form>
-  -->
+    </form>
 
   </ion-content>
 </ion-view>

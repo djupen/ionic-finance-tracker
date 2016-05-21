@@ -1,23 +1,43 @@
 <ion-side-menus enable-menu-with-back-views="false">
+
   <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
+    <ion-nav-bar class="bar-positive ft-aqua-bg no-border">
       <ion-nav-back-button>
       </ion-nav-back-button>
-
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
+        <button class="button button-icon ion-navicon" menu-toggle="left"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+    <ion-header-bar class="bar-menu ft-purple-bg">
+      <h1 class="header-text">FinanceTracker Pro</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
+        <a class="item item-icon-left item-icon-right menu-item-text gunmetal" menu-close ui-sref="app.entryList">
+          <i class="icon ion-cash menu-icon ft-red"></i>
+          Aufzeichnungen
+          <i class="icon ion-ios-arrow-right menu-chevron ft-red"></i>
+        </a>
+        <a class="item item-icon-left item-icon-right menu-item-text gunmetal" menu-close ui-sref="app.categories">
+          <i class="icon ion-pricetags menu-icon ft-red"></i>
+          Kategorien
+          <i class="icon ion-ios-arrow-right menu-chevron ft-red"></i>
+        </a>
+        <a class="item item-icon-left item-icon-right menu-item-text gunmetal" menu-close ui-sref="app.statistics">
+          <i class="icon ion-stats-bars menu-icon ft-red"></i>
+          Statistik
+          <i class="icon ion-ios-arrow-right menu-chevron ft-red"></i>
+        </a>
+        <a class="item item-icon-left item-icon-right menu-item-text gunmetal" menu-close ui-sref="app.settings">
+          <i class="icon ion-gear-b menu-icon ft-red"></i>
+          Einstellungen
+          <i class="icon ion-ios-arrow-right menu-chevron ft-red"></i>
+        </a>
+        <!--
         <ion-item menu-close href="#/app/addEntry">
           <i class="icon ion-plus-circled" style="font-size: 20px;"></i> Add Entry
         </ion-item>
@@ -27,6 +47,7 @@
         <ion-item menu-close href="#/app/statistics">
           Statistics
         </ion-item>
+        -->
       </ion-list>
     </ion-content>
   </ion-side-menu>

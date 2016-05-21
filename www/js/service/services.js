@@ -1,8 +1,8 @@
 angular.module('myfinance.services', ['ionic'])
 
-  .factory('categoryService', function () {
+  .service('categoryService', function () {
 
-    var topLevelCategories = [
+    this.topLevelCategories = [
       {
         id: "1",
         type: "expense",
@@ -37,7 +37,7 @@ angular.module('myfinance.services', ['ionic'])
       }
     ];
 
-    var subLevelCategories = [
+    this.subLevelCategories = [
       {id: "1", topLevelId: "1", title: "Kategorie 1 Subkategorie 1", color: "00ff00"},
       {id: "2", topLevelId: "1", title: "Kategorie 1 Subkategorie 2", color: "00ff00"},
       {id: "3", topLevelId: "2", title: "Kategorie 2 Subkategorie 1", color: "ffee11"},
@@ -54,31 +54,26 @@ angular.module('myfinance.services', ['ionic'])
     // The sub level category picked by the user
     this.selectedAddEntrySubLevelCategory = null;
 
-    return {
 
-      setSelectedAddEntryTopLevelCategory: function (topLevelCategory) {
-        this.selectedAddEntryTopLevelCategory = topLevelCategory;
-      },
+    this.setSelectedAddEntryTopLevelCategory = function (topLevelCategory) {
+      this.selectedAddEntryTopLevelCategory = topLevelCategory;
+    };
 
-      setSelectedAddEntrySubLevelCategory: function (subLevelCategory) {
-        this.selectedAddEntrySubLevelCategory = subLevelCategory;
-      },
+    this.setSelectedAddEntrySubLevelCategory = function (subLevelCategory) {
+      this.selectedAddEntrySubLevelCategory = subLevelCategory;
+    };
 
-      getTopLevelCategories: function () {
-        return topLevelCategories;
-      },
-
-      getSubLevelCategoriesForTopLevelCategory: function (x) {
-        var matchingSubLevelCategories = [];
-        for (var i = 0; i < subLevelCategories.length; i++) {
-          var subLevelCategoryItem = subLevelCategories[i];
-          if (subLevelCategoryItem.topLevelId == x.id) {
-            matchingSubLevelCategories.push(subLevelCategoryItem);
-          }
+    this.getSubLevelCategoriesForTopLevelCategory = function (x) {
+      var matchingSubLevelCategories = [];
+      for (var i = 0; i < this.subLevelCategories.length; i++) {
+        var subLevelCategoryItem = this.subLevelCategories[i];
+        if (subLevelCategoryItem.topLevelId == x.id) {
+          matchingSubLevelCategories.push(subLevelCategoryItem);
         }
-        return matchingSubLevelCategories;
       }
+      return matchingSubLevelCategories;
     }
+
   })
 
   /*

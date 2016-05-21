@@ -1,3 +1,101 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+.bar-menu {
+  width: 100%;
+  padding: 0;
+}
+
+.header-text {
+  text-align: left;
+  font-size: 17px;
+  padding-left: 20px;
+  padding-top: 12px;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.menu-item-text {
+  font-size: 16px;
+}
+
+.gunmetal {
+  color: #2C3539;
+}
+
+.menu-chevron {
+  font-size: 24px !important;
+}
+
+.menu-icon {
+  font-size: 33px;
+}
+
+.header-icon {
+  font-size: 10px !important;
+}
+
+.customHeaderIcon:before {
+  color: #31C0E6;
+  font-size: 32px;
+}
+
+.ft-purple {
+  color: #540D6E;
+}
+
+.ft-purple-bg {
+  background-color: #540D6E !important;
+}
+
+.ft-red {
+  color: #EE4266;
+}
+
+.ft-red-bg {
+  background-color: #EE4266 !important;
+}
+
+.ft-yellow {
+  color: #FFD23F;
+}
+
+.ft-white {
+  color: white;
+}
+
+.ft-aqua {
+  color: #3BCEAC;
+}
+
+.ft-aqua-bg {
+  background-color: #3BCEAC !important;
+}
+
+.no-border {
+  border: none;
+}
+
+.ft-green {
+  color: #0EAD69;
+}
+
+.subheader {
+  padding-top: 1px;
+  background-color: #D3EAF0;
+}
+
+.a-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #808080 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0px;
+}
