@@ -52,19 +52,19 @@ angular.module('myfinance.services', ['ionic'])
     return {
 
       getAllTopLevelCategories: function () {
-        return categories;
+        return topLevelCategories;
       },
 
       getSubLevelCategoriesForTopLevelCategory: function (x) {
         var matchingSubLevelCategories = [];
-        for (var subLevelCategoryItem in subLevelCategories) {
+        for (var i = 0; i < subLevelCategories.length; i++) {
+          var subLevelCategoryItem = subLevelCategories[i];
           if (subLevelCategoryItem.topLevelId == x) {
             matchingSubLevelCategories.push(subLevelCategoryItem);
           }
         }
         return matchingSubLevelCategories;
       }
-
     }
   })
 

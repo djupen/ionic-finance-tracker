@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('myfinance', ['ionic', 'myfinance.controllers', 'myfinance.services'])
+angular.module('myfinance', ['ionic', 'myfinance.controller.app', 'myfinance.controller.addentry', 'myfinance.controller.entrylist', 'myfinance.controller.statistics', 'myfinance.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,6 +35,7 @@ angular.module('myfinance', ['ionic', 'myfinance.controllers', 'myfinance.servic
 
       .state('app.addEntry', {
         url: '/addEntry',
+        controller: 'AddEntryController',
         views: {
           'menuContent': {
             templateUrl: 'templates/addentry.html'

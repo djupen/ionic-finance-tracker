@@ -1,5 +1,57 @@
 <ion-view view-title="AddEntry">
   <ion-content>
-    <p>AddEntry</p>
+
+    <form name="addEntryForm" ng-controller="AddEntryController" novalidate="" ng-submit="addEntry(addEntryForm)">
+      <!-- Amount -->
+      <label class="item item-input item-stacked-label"
+             ng-class="{ 'has-errors' : addEntryForm.amount.$invalid, 'no-errors' : addEntryForm.amount.$valid}">
+        <span class="input-label">Betrag</span>
+        <input type="number" ng-model="addEntryFormData.amount" name="amount" placeholder="9,99€" min="1" required>
+      </label>
+
+      <div class="error-container" ng-show="addEntryForm.amount.$error" ng-messages="addEntryForm.amount.$error">
+        <div ng-messages-include="error-list.html"></div>
+      </div>
+
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Kategorie
+        </div>
+        <select name="category" ng-model="addEntryFormData.selectedCategory" ng-change="updateSubCategories()"
+                ng-options="x.title for x in categories" required>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Detail-Kategorie
+        </div>
+        <select name="subcategory" ng-model="addEntryFormData.selectedSubCategory"
+                ng-options="x.title for x in subLevelCategories" required>
+        </select>
+      </label>
+
+      <!--
+<div class="list" style="margin-bottom: 0px;">
+  <li class="item item-toggle">
+    Position speichern
+    <label class="toggle toggle-assertive">
+      <input type="checkbox">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </li>
+</div>
+-->
+
+      <button ng-disabled="addEntryForm.$invalid" class="button button-full button-positive" style="margin-top: 0px;"
+              type="submit">
+        Sign In
+      </button>
+
+    </form>
+
   </ion-content>
 </ion-view>
